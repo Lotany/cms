@@ -22,8 +22,8 @@
             <!-- Admin Content -->
             <div class="admin-content">
                 <div class="button-group">
-                    <a href="create.html" class="btn btn-big">Add Topic</a>
-                    <a href="index.html" class="btn btn-big">Manage Topics</a>
+                    <a href="create.php" class="btn btn-big">Add Topic</a>
+                    <a href="index.php" class="btn btn-big">Manage Topics</a>
                 </div>
 
 
@@ -31,7 +31,7 @@
 
                     <h2 class="page-title">Add Topic</h2>
 
-                    <form action="create.html" method="post">
+                    <form action="create.php" method="post">
                         <div>
                             <label>Name</label>
                             <input type="text" name="name" class="text-input">
