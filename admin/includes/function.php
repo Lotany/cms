@@ -27,12 +27,16 @@ function getTopic(){
        $id = $row['topic_id'];
 	   $name =$row['topic_name'];
 
-echo " <td>$id</td> 
-	   <td>$name</td>"."\n";
+echo '<tr>
+	   <td>'.$id.'</td> 
+	   <td>'.$name.'</td>
+	   <td><a href="dele.html" class="edit">edit</a></td>
+	   <td><a href="dele.html" class="delete">delete</a></td>
+   </tr>';
 
 		}
 	}else {
-		echo "0 Topics";
+		echo "No topic to fetch!!";
 	}
 
 	$conn->close();

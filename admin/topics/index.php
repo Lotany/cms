@@ -37,20 +37,7 @@
                             <th colspan="2">Action</th>
                         </thead>
                         <tbody>
-                            <tr>
                             <?php getTopic() ?>
-                            <td><a href="#" class="edit">edit</a></td>
-                            <td><a href="#" class="delete">delete</a></td>
-                            <br>
-                            </tr>
-                       
-
-<!--                             <tr>
-                                <td>2</td>
-                                <td>Life Lessons</td>
-                                <td><a href="#" class="edit">edit</a></td>
-                                <td><a href="#" class="delete">delete</a></td>
-                            </tr> -->
                         </tbody>
                     </table>
 
