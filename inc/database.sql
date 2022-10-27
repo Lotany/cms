@@ -56,12 +56,12 @@ INSERT INTO `tbl_user_role` (`id`, `user_role`) VALUES
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 
-CREATE TABLE IF NOT EXISTS `topic_tbl` {
-  `topic_id` int NOT NULL AUTO_INCREMENT,
-  `topic_name` varchar DEFAULT NULL,
-  `topic_desc` varchar DEFAULT NULL,
-  PRIMARY KEY (`id`)
-} ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+CREATE TABLE IF NOT EXISTS `topic_tbl` (
+  `topic_id` int(10) NOT NULL AUTO_INCREMENT,
+  `topic_name` varchar(100) DEFAULT NULL,
+  `topic_desc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`topic_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
-INSERT INTO `topic-tbl` (`topic_id`, `topic_name`, `topic_desc`) VALUES
+INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `topic_desc`) VALUES
   (1,'Taita', 'talks about taita people');

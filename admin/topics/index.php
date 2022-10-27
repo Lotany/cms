@@ -38,17 +38,19 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Poetry</td>
-                                <td><a href="#" class="edit">edit</a></td>
-                                <td><a href="#" class="delete">delete</a></td>
+                            <?php getTopic() ?>
+                            <td><a href="#" class="edit">edit</a></td>
+                            <td><a href="#" class="delete">delete</a></td>
+                            <br>
                             </tr>
-                            <tr>
+                       
+
+<!--                             <tr>
                                 <td>2</td>
                                 <td>Life Lessons</td>
                                 <td><a href="#" class="edit">edit</a></td>
                                 <td><a href="#" class="delete">delete</a></td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
 

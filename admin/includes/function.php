@@ -24,7 +24,12 @@ function getTopic(){
 	$result = $conn->query($query);
 	if ($result -> num_rows>0){
 		while($row = $result->fetch_assoc()){
-       echo $row["topic_name"];
+       $id = $row['topic_id'];
+	   $name =$row['topic_name'];
+
+echo " <td>$id</td> 
+	   <td>$name</td>"."\n";
+
 		}
 	}else {
 		echo "0 Topics";
