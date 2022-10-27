@@ -28,7 +28,7 @@
     <body>
         <header>
             <div class="logo">
-                <h1 class="logo-text"><span>Awa</span>Inspires</h1>
+                <h1 class="logo-text"> <a href="index.php"><span>Awa</span>Inspires </a></h1>
             </div>
             <i class="fa fa-bars menu-toggle"></i>
             <ul class="nav">
