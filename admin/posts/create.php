@@ -1,49 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-        <!-- Font Awesome -->
-        <link rel="stylesheet"
-            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-            integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-            crossorigin="anonymous">
-
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Candal|Lora"
-            rel="stylesheet">
-
-        <!-- Custom Styling -->
-        <link rel="stylesheet" href="../../css/style.css">
-
-        <!-- Admin Styling -->
-        <link rel="stylesheet" href="../../css/admin.css">
-
-        <title>Admin Section - Add Post</title>
-    </head>
-
-    <body>
-        <header>
-            <div class="logo">
-                <h1 class="logo-text"><span>Awa</span>Inspires</h1>
-            </div>
-            <i class="fa fa-bars menu-toggle"></i>
-            <ul class="nav">
-                <li>
-                    <a href="#">
-                        <i class="fa fa-user"></i>
-                        Awa Melvine
-                        <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
-                    </a>
-                    <ul>
-                        <li><a href="#" class="logout">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </header>
+<?php 
+	session_start();
+	
+	if(!isset($_SESSION['id'],$_SESSION['user_role_id']))
+	{
+		header('location:../../index.php?lmsg=true');
+		exit;
+	}		
+	
+	require_once('../includes/config.php');
+	require_once('../includes/header.php'); 
+?>
 
         <!-- Admin Page Wrapper -->
         <div class="admin-wrapper">
@@ -51,9 +17,14 @@
             <!-- Left Sidebar -->
             <div class="left-sidebar">
                 <ul>
-                    <li><a href="index.html">Manage Posts</a></li>
-                    <li><a href="../users/index.html">Manage Users</a></li>
-                    <li><a href="../topics/index.html">Manage Topics</a></li>
+                    <li><a href="index.php">Manage Posts</a></li>
+                    <?php 
+		//only visible to admin
+		if($_SESSION['user_role_id'] == 1){?>
+                    <li><a href="../users/index.php">Manage Users</a></li>
+                    <li><a href="../topics/index.php">Manage Topics</a></li>
+
+            <?php } ?>
                 </ul>
             </div>
             <!-- // Left Sidebar -->
@@ -62,8 +33,8 @@
             <!-- Admin Content -->
             <div class="admin-content">
                 <div class="button-group">
-                    <a href="create.html" class="btn btn-big">Add Post</a>
-                    <a href="index.html" class="btn btn-big">Manage Posts</a>
+                    <a href="create.php" class="btn btn-big">Add Post</a>
+                    <a href="index.php" class="btn btn-big">Manage Posts</a>
                 </div>
 
 

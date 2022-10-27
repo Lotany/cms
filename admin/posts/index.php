@@ -7,8 +7,16 @@
 		exit;
 	}		
 	
-	require_once('../config.php');
-	require_once('../includes/header.php'); 
+	require_once('../includes/config.php');
+	require_once('../includes/header.php');
+
+    if(isset($_GET['logout']) && $_GET['logout'] == true)
+{
+	session_destroy();
+	header("location:../../index.php");
+	exit;
+}
+
 ?>
 
         <!-- Admin Page Wrapper -->
@@ -17,9 +25,15 @@
             <!-- Left Sidebar -->
             <div class="left-sidebar">
                 <ul>
-                    <li><a href="index.html">Manage Posts</a></li>
+                    <li><a href="index.php">Manage Posts</a></li>
+
+                    <?php 
+		//only visible to admin
+		if($_SESSION['user_role_id'] == 1){?>
                     <li><a href="../users/index.php">Manage Users</a></li>
                     <li><a href="../topics/index.php">Manage Topics</a></li>
+
+            <?php } ?>
                 </ul>
             </div>
             <!-- // Left Sidebar -->
@@ -28,8 +42,8 @@
             <!-- Admin Content -->
             <div class="admin-content">
                 <div class="button-group">
-                    <a href="create.html" class="btn btn-big">Add Post</a>
-                    <a href="index.html" class="btn btn-big">Manage Posts</a>
+                    <a href="create.php" class="btn btn-big">Add Post</a>
+                    <a href="index.php" class="btn btn-big">Manage Posts</a>
                 </div>
 
 

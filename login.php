@@ -23,7 +23,7 @@ if(isset($_POST['login-btn']))
 			
 			$_SESSION = $getUserRow;
 						
-			header('location:/admin/posts/index.php');
+			header('location:admin/posts/index.php');
 			exit;
 		}
 		else
