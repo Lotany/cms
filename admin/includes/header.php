@@ -39,7 +39,7 @@
                         <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
                     </a>
                     <ul>
-                        <li><a href="../../index.php?logout=true" class="logout" name="logout">Logout</a></li>
+                        <li><a href="../../login.php?logout=true" class="logout" name="logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
