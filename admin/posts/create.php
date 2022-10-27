@@ -7,7 +7,7 @@
 		exit;
 	}		
 	
-	require_once('../includes/config.php');
+    require_once('../includes/function.php');
 	require_once('../includes/header.php'); 
 ?>
 
