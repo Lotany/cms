@@ -4,14 +4,7 @@
         <div class="admin-wrapper">
 
             <!-- Left Sidebar -->
-            <div class="left-sidebar">
-                <ul>
-                    <li><a href="../posts/index.html">Manage Posts</a></li>
-                    <li><a href="index.html">Manage Users</a></li>
-                    <li><a href="../topics/index.html">Manage Topics</a></li>
-                </ul>
-            </div>
-            <!-- // Left Sidebar -->
+            <?php include '../includes/sidebar.php'; ?>
 
 
             <!-- Admin Content -->

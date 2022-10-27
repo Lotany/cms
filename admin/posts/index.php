@@ -3,19 +3,12 @@
 	
 	if(!isset($_SESSION['id'],$_SESSION['user_role_id']))
 	{
-		header('location:../../index.php?lmsg=true');
+		header('location:../../login.php?lmsg=true');
 		exit;
 	}		
 	
 	require_once('../includes/config.php');
 	require_once('../includes/header.php');
-
-    if(isset($_GET['logout']) && $_GET['logout'] == true)
-{
-	session_destroy();
-	header("location:../../index.php");
-	exit;
-}
 
 ?>
 
@@ -23,19 +16,7 @@
         <div class="admin-wrapper">
 
             <!-- Left Sidebar -->
-            <div class="left-sidebar">
-                <ul>
-                    <li><a href="index.php">Manage Posts</a></li>
-
-                    <?php 
-		//only visible to admin
-		if($_SESSION['user_role_id'] == 1){?>
-                    <li><a href="../users/index.php">Manage Users</a></li>
-                    <li><a href="../topics/index.php">Manage Topics</a></li>
-
-            <?php } ?>
-                </ul>
-            </div>
+    <?php include '../includes/sidebar.php'; ?>
             <!-- // Left Sidebar -->
 
 
