@@ -1,4 +1,15 @@
-<?php  include'../includes/header.php'?>
+<?php 
+	session_start();
+	
+	if(!isset($_SESSION['id'],$_SESSION['user_role_id']))
+	{
+		header('location:../../index.php?lmsg=true');
+		exit;
+	}		
+	
+	require_once('../config.php');
+	require_once('../includes/header.php'); 
+?>
 
         <!-- Admin Page Wrapper -->
         <div class="admin-wrapper">
