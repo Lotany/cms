@@ -30,8 +30,8 @@ function getTopic(){
 echo '<tr>
 	   <td>'.$id.'</td> 
 	   <td>'.$name.'</td>
-	   <td><a href="' .delTopic($id).'" class="edit">edit</a></td>
-	   <td><a href="dele.html" class="delete">delete</a></td>
+	   <td><a href="#" class="edit">edit</a></td>
+	   <td><a href="../func-add/delTopic.php" class="delete">delete</a></td>
    </tr>';
 
 		}
@@ -40,44 +40,3 @@ echo '<tr>
 	}
 	$conn->close();
 }
-
-
-	//delete topic
-function delTopic($id){
-	global $conn;
-	$sql = "delete from topic_tbl where topic_id = $id";
-	if($conn->query($sql)===TRUE){
-		echo "Topic deleted successfully";
-	} else {
-		echo "Error deleting topic!!";
-	}
-}
-
-	//add topic
-
-function addTopic(){
-	global $conn;
-
-	if (isset($_POST['add-btn'])){
-
-		
-		$topic = $_POST['topics'];
-		$topd = $_POST['topdes'];
-
-		$sql= "insert into topic_tbl (topic_name, topic_desc) values($topic, $topd)";
-		if($conn->query($sql)=== true){
-			echo "Topic Inserted Successfully";
-		}else {
-			echo "Error".$conn->error;
-		}
-
-	}
-	
-	$conn->close();
-
-	
-
-}
-
-
-?>

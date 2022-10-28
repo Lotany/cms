@@ -1,5 +1,6 @@
-//add topic
 <?php
+   
+   require_once '../includes/config.php';
 function addTopic(){
 	global $conn;
 
@@ -20,6 +21,6 @@ function addTopic(){
 	
 	$conn->close();
 
-	
-
 }
+
+addTopic();

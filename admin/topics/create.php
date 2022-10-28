@@ -31,7 +31,7 @@
 
                     <h2 class="page-title">Add Topic</h2>
 
-                    <form action="/func-add/addTopic.php" method="post">
+                    <form action="../func-add/addTopic.php" method="post">
                         <div>
                             <label>Name</label>
                             <input type="text" name="topics" class="text-input">
