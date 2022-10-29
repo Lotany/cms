@@ -10,15 +10,13 @@
     require_once('../includes/function.php');
 	require_once('../includes/header.php');
 
-    function getPost($query){
-        global $conn;
-        $q = "select * from topic_tbl";
-        $query = mysqli_query($conn,$q);
-
-    }
-     
-
 ?>
+       <?php
+            require_once '../includes/config.php';
+            $sql = "select * from topic_tbl";
+            $query = mysqli_query($conn,$sql);
+       
+       ?>
 
         <!-- Admin Page Wrapper -->
         <div class="admin-wrapper">
@@ -45,15 +43,16 @@
                             <th colspan="2">Action</th>
                         </thead>
                         <tbody>
-                        <?php { ?>
-                            <tr>
-	   <td><?php getPost('topic_id'); ?></td> 
-	   <td></td>
+                            <?php
+                            while($qq=mysqli_fetch_array($query))
+                            { ?>
+                        <tr>
+	   <td><?php echo $qq['topic_id']; ?></td> 
+	   <td><?php echo $qq['topic_name']; ?></td>
 	   <td><a href="#" class="edit">edit</a></td>
-	   <td><form action ="../func-add/delTopic.php" method="post"><button name="delete-post">Delete</button></form></td>
-   </tr>
-
-                       <?php } ?>
+	   <td><a href="../func-add/delTopic.php?id=<?php echo $qq['topic_id']; ?>" class="delete">Delete</a></td>
+   </tr>;
+   <?php } ?>
                         </tbody>
                     </table>
 

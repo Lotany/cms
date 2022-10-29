@@ -27,12 +27,7 @@ function getTopic(){
        $id = $row['topic_id'];
 	   $name =$row['topic_name'];
 
-echo '<tr>
-	   <td>'.$id.'</td> 
-	   <td>'.$name.'</td>
-	   <td><a href="#" class="edit">edit</a></td>
-	   <td><form action ="../func-add/delTopic.php" method="post"><button name="delete-post">Delete</button></form></td>
-   </tr>';
+
 
 		}
 	}else {
