@@ -31,7 +31,7 @@ echo '<tr>
 	   <td>'.$id.'</td> 
 	   <td>'.$name.'</td>
 	   <td><a href="#" class="edit">edit</a></td>
-	   <td><button type= "submit" name ="delete-post">Edit</button></td>
+	   <td><form action ="../func-add/delTopic.php" method="post"><button name="delete-post">Delete</button></form></td>
    </tr>';
 
 		}
