@@ -10,6 +10,14 @@
     require_once('../includes/function.php');
 	require_once('../includes/header.php');
 
+    function getPost($query){
+        global $conn;
+        $q = "select * from topic_tbl";
+        $query = mysqli_query($conn,$q);
+
+    }
+     
+
 ?>
 
         <!-- Admin Page Wrapper -->
@@ -37,7 +45,15 @@
                             <th colspan="2">Action</th>
                         </thead>
                         <tbody>
-                            <?php getTopic() ?>
+                        <?php { ?>
+                            <tr>
+	   <td><?php getPost('topic_id'); ?></td> 
+	   <td></td>
+	   <td><a href="#" class="edit">edit</a></td>
+	   <td><form action ="../func-add/delTopic.php" method="post"><button name="delete-post">Delete</button></form></td>
+   </tr>
+
+                       <?php } ?>
                         </tbody>
                     </table>
 
