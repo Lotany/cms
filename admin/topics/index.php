@@ -49,7 +49,7 @@
                         <tr>
 	   <td><?php echo $qq['topic_id']; ?></td> 
 	   <td><?php echo $qq['topic_name']; ?></td>
-	   <td><a href="#" class="edit">edit</a></td>
+	   <td><a href="../func-add/editTopic.php?topid=<?php echo $qq['topic_id']; ?>" class="edit">edit</a></td>
 	   <td><a href="../func-add/delTopic.php?id=<?php echo $qq['topic_id']; ?>" class="delete">Delete</a></td>
    </tr>
    <?php } ?>
