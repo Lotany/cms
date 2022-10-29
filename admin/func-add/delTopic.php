@@ -1,16 +1,18 @@
 <?php
-    require_once '../includes/config.php';
-	//delete topic
-function delTopic(){
-    global $conn;
-
-
-	$sql = "delete from topic_tbl where topic_id = ?";
-	if($conn->query($sql)===TRUE){
-		echo "Topic deleted successfully";
-	} else {
-		echo "Error deleting topic!!";
-	}
+if (isset($_GET['delete-post'])) {
+	$post_id = $_GET['delete-post'];
+	deletePost($post_id);
 }
 
-delTopic();
+
+function deletePost($post_id)
+{
+	global $conn;
+	$sql = "DELETE FROM topic_tbl WHERE id=$post_id";
+	if (mysqli_query($conn, $sql)) {
+		$_SESSION['message'] = "Post successfully deleted";
+		header("location: posts.php");
+		exit(0);
+	}
+
+}

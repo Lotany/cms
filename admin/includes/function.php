@@ -31,7 +31,7 @@ echo '<tr>
 	   <td>'.$id.'</td> 
 	   <td>'.$name.'</td>
 	   <td><a href="#" class="edit">edit</a></td>
-	   <td><a href="../func-add/delTopic.php" class="delete">delete</a></td>
+	   <td><button type= "submit" name ="delete-post">Edit</button></td>
    </tr>';
 
 		}
