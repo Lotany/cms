@@ -45,16 +45,13 @@
                                 <td>This is the first post</td>
                                 <td>Awa</td>
                                 <td><a href="#" class="edit">edit</a></td>
+
+                                <?php 
+		//only visible to admin
+		if($_SESSION['user_role_id'] == 1){?>
                                 <td><a href="#" class="delete">delete</a></td>
-                                <td><a href="#" class="publish">publish</a></td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>This is the second post</td>
-                                <td>Melvine</td>
-                                <td><a href="#" class="edit">edit</a></td>
-                                <td><a href="#" class="delete">delete</a></td>
-                                <td><a href="#" class="publish">publish</a></td>
+                                
+                  <?php } ?>              <td><a href="#" class="publish">publish</a></td>
                             </tr>
                         </tbody>
                     </table>
