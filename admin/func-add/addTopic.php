@@ -1,25 +1,16 @@
-<?
+<?php 
+function lotan(){
+	include_once '../includes/config.php';
 
-require_once 'config.php';
-
-if (isset($_POST['add-btn'])){	
-$topic = $_POST['topics'];
-$topd = $_POST['topdes'];
-}
-
-
-function addTopic($topic,$topd){
-	global $conn;
-
-	$sql= "insert into topic_tbl (topic_name, topic_desc) values($topic, $topd)";
+	if (isset($_POST['add-btn'])){	
+	$topics = $_POST['topics'];
+	$topdes = $_POST['topdes'];
 	
-	if($conn->query($sql)=== true){
-		echo "<P>Topic Inserted Successfully</P>";
-	}else {
-		echo "Error".$conn->error;
+	$sql= "insert into topic_tbl (topic_name, topic_desc) values($topics, $topdes)";
+	mysqli_query($conn,$sql);
+	header("Location: ../topics/index.php?add=success");
+	
 	}
-	$conn->close();
-
 }
 
-addTopic($topic,$topd);
+lotan();
