@@ -14,24 +14,3 @@ function getUserAccessRoleByID($id)
 		
 		return $row['user_role'];
 	}
-
-
-	//get topic
-function getTopic(){
-	global $conn;
-
-	$sql = "select * from topic_tbl";
-	$result = $conn->query($sql);
-	if ($result -> num_rows>0){
-		while($row = $result->fetch_assoc()){
-       $id = $row['topic_id'];
-	   $name =$row['topic_name'];
-
-
-
-		}
-	}else {
-		echo "No topic to fetch!!";
-	}
-	$conn->close();
-}
