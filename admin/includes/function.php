@@ -30,8 +30,8 @@ function getTopic(){
 echo '<tr>
 	   <td>'.$id.'</td> 
 	   <td>'.$name.'</td>
-	   <td><a href="#" class="edit">edit</a></td>
-	   <td><form action ="../func-add/delTopic.php" method="post"><button name="delete-post">Delete</button></form></td>
+	   <td><a href="#" class="edit">Edit</a></td>
+	   <td><a href="#" class="delete">Delete</a></td>
    </tr>';
 
 		}
