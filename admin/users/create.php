@@ -61,7 +61,7 @@
                         </div>
 
                         <div>
-                            <button type="edit-user" class="btn btn-big">Add User</button>
+                            <button type="add-user" class="btn btn-big">Add User</button>
                         </div>
                     </form>
 

@@ -14,20 +14,18 @@
 
 <?php 
    //edit user
-    	if (isset($_POST['edit-user'])){
-        
+    	if (isset($_POST['edit-update'])){
             $username = $_POST['username'];
             $email = $_POST['email'];
-            $password = $_POST['password'];
             $role = $_POST['role'];
-            $id = $_GET['topid'];
-            $sql= "update users_tbl set user_name = '$username', email ='$email',password = '$password',user_role_id= '$role' where id=$id";
+            $id = $_GET['edid'];
+            $sql= "update tbl_users set user_name = '$username', email ='$email', user_role_id= '$role' where id=$id";
             mysqli_query($conn,$sql);
-            header('Location: ../topics/index.php');
+            header('Location: ../topics/index.php?success');
          }
          
          else if(isset($_GET['edid'])){
-                $q = "select * from users_tbl where id ='".$_GET['edid']."'";
+                $q = "select * from tbl_users where id ='".$_GET['edid']."'";
                 $query = mysqli_query($conn, $q);
                 $qq= mysqli_fetch_array($query);
 
@@ -51,34 +49,26 @@
 
                 <div class="content">
 
-                    <h2 class="page-title">Add User</h2>
+                    <h2 class="page-title">Edit User</h2>
 
-                    <form action="editUser.php" method="post">
+                    <form method="post">
                         <div>
                             <label>Username</label>
-                            <input type="text" name="username"
+                            <input type="text" name="username" value="<?php echo $qq['user_name']; ?>"
                                 class="text-input">
                         </div>
                         <div>
                             <label>Email</label>
-                            <input type="email" name="email" class="text-input">
-                        </div>
-                        <div>
-                            <label>Password</label>
-                            <input type="password" name="password"
-                                class="text-input">
+                            <input type="email" name="email" value="<?php echo $qq['email']; ?>" class="text-input">
                         </div>
 
                         <div>
                             <label>Role</label>
-                            <select name="role" class="text-input">
-                                <option value="Author">Author</option>
-                                <option value="Admin">Admin</option>
-                            </select>
+                            <input type="number" name="role" value="<?php echo $qq['user_role_id']; ?>" class="text-input">
                         </div>
 
                         <div>
-                            <button type="submit" class="btn btn-big">Add User</button>
+                            <button type="edit-update" class="btn btn-big">Update</button>
                         </div>
                     </form>
 
