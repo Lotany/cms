@@ -12,6 +12,7 @@
 
 ?>
 
+
         <!-- Admin Page Wrapper -->
         <div class="admin-wrapper">
 
@@ -60,7 +61,7 @@
                         </div>
 
                         <div>
-                            <button type="submit" class="btn btn-big">Add User</button>
+                            <button type="edit-user" class="btn btn-big">Add User</button>
                         </div>
                     </form>
 
