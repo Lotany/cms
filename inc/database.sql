@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `topic_tbl` (
   `topic_name` varchar(255) DEFAULT NULL,
   `slug` varchar(255) DEFAULT NULL UNIQUE,
   PRIMARY KEY (`topic_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `slug`) VALUES
   (1,'Taita', 'tribe'),
@@ -65,12 +65,11 @@ INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `slug`) VALUES
 
 
 CREATE TABLE IF NOT EXISTS `post_topic`(
-  `id`int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id`int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `post_id` int(11) DEFAULT NULL UNIQUE,
   `topic_id` int(11) DEFAULT NULL
-  FOREIGN KEY `post_id` REFERENCES `posts` (`id`)  ON DELETE CASCADE ON UPDATE NO ACTION
-  FOREIGN KEY `topic_id` REFERENCES `topic_tbl` (`topic_id`) ON DELETE CASCADE ON UPDATE NO ACTION
-)
+
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`) VALUES
 (1,1,1),
