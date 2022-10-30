@@ -21,7 +21,7 @@
             $id = $_GET['edid'];
             $sql= "update tbl_users set user_name = '$username', email ='$email', user_role_id= '$role' where id=$id";
             mysqli_query($conn,$sql);
-            header('Location: editUser.php?success');
+            header('Location: ../users/index.php');
          }
          
          else if(isset($_GET['edid'])){
