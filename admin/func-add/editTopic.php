@@ -14,7 +14,6 @@
    <?php 
    //edit topic
     	if (isset($_POST['add-update'])){
-        
             $topics = $_POST['topics'];
             $topdes = $_POST['topdes'];
             $id = $_GET['topid'];
