@@ -52,14 +52,21 @@ INSERT INTO `tbl_user_role` (`id`, `user_role`) VALUES
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 
 CREATE TABLE IF NOT EXISTS `topic_tbl` (
-  `topic_id` int(10) NOT NULL AUTO_INCREMENT,
-  `topic_name` varchar(100) DEFAULT NULL,
-  `topic_desc` varchar(100) DEFAULT NULL,
+  `topic_id` int(11) NOT NULL AUTO_INCREMENT,
+  `topic_name` varchar(255) DEFAULT NULL,
+  `slug` varchar(255) DEFAULT NULL UNIQUE,
   PRIMARY KEY (`topic_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
-INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `topic_desc`) VALUES
+INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `slug`) VALUES
   (1,'Taita', 'talks about taita people');
+
+
+CREATE TABLE IF NOT EXISTS `post_topic`(
+  `id`int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `post_id` int(11) NOT NULL UNIQUE,
+  `topic_id` int(11) NOT NULL
+)
 
 
   CREATE TABLE IF NOT EXISTS `posts` (
