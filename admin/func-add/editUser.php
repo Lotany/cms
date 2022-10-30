@@ -21,7 +21,7 @@
             $id = $_GET['edid'];
             $sql= "update tbl_users set user_name = '$username', email ='$email', user_role_id= '$role' where id=$id";
             mysqli_query($conn,$sql);
-            header('Location: ../topics/index.php?success');
+            header('Location: editUser.php?success');
          }
          
          else if(isset($_GET['edid'])){
@@ -68,7 +68,7 @@
                         </div>
 
                         <div>
-                            <button type="edit-update" class="btn btn-big">Update</button>
+                            <button type="submit" name="edit-update" class="btn btn-big">Update</button>
                         </div>
                     </form>
 
