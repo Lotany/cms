@@ -4,13 +4,12 @@
 
 	include '../includes/config.php';
 
-	$user = $_POST['username'];
-	$email = $_POST['email'];
-	$pass = $_POST['password'];
-	$role = $_POST['role'];
+	$user = mysqli_real_escape_string($conn,$_POST['username']);
+	$email =  mysqli_real_escape_string($conn,$_POST['email']);
+	$pass =  mysqli_real_escape_string($conn,$_POST['password']);
+	$role =  mysqli_real_escape_string($conn,$_POST['role']);
 	
 	$sql= "insert into tbl_users (user_name, email, password, user_role_id) values('$user', '$email', '$pass', '$role')";
 	mysqli_query($conn,$sql);
 	header("Location: ../users/index.php?add=success");
-	
 	}
