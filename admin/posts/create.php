@@ -11,6 +11,13 @@
 	require_once('../includes/header.php'); 
 ?>
 
+<?php
+            require_once '../includes/config.php';
+            $sql = "select * from topic_tbl";
+            $query = mysqli_query($conn,$sql);
+       
+       ?>
+
         <!-- Admin Page Wrapper -->
         <div class="admin-wrapper">
 
@@ -31,25 +38,38 @@
                     <h2 class="page-title">Manage Posts</h2>
 
                     <form action="create.html" method="post">
-                        <div>
-                            <label>Title</label>
+                    <div>
+                            <label>User_Id</label>
                             <input type="text" name="title" class="text-input">
                         </div>
                         <div>
-                            <label>Body</label>
-                            <textarea name="body" id="body"></textarea>
-                        </div>
+                        
+
+                                                
                         <div>
-                            <label>Image</label>
-                            <input type="file" name="image" class="text-input">
-                        </div>
-                        <div>
-                            <label>Topic</label>
+                            <label>Topic *</label>
                             <select name="topic" class="text-input">
                                 <option value="Poetry">Poetry</option>
-                                <option value="Life Lessons">Life Lessons</option>
                             </select>
                         </div>
+
+
+                            <label>Title *</label>
+                            <input type="text" name="title" class="text-input">
+                        </div>
+
+
+                        <div>
+                            <label>Image *</label>
+                            <input type="file" name="image" class="text-input">
+                        </div>
+
+                        <div>
+                            <label>Body *</label>
+                            <textarea name="body" id="body"></textarea>
+                        </div>
+
+
                         <div>
                             <button type="submit" class="btn btn-big">Add Post</button>
                         </div>

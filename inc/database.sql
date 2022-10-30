@@ -71,8 +71,7 @@ INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `topic_desc`) VALUES
     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY;
     `user_id` int(11) DEFAULT NULL,
     `title` varchar(255) NOt NULL,
-    `slug` varchar(255) NOT NULL,
-    `view` int(11) NOT NULL,
+    `views` int(11) NOT NULL,
     `image` varchar(255) NOT NULL,
     `body` text NOT NULL,
     `published` tinyint(1) NOT NULL,
