@@ -68,7 +68,7 @@ INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `topic_desc`) VALUES
 
 
   CREATE TABLE IF NOT EXISTS `posts` {
-    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY;
+    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` int(11) DEFAULT NULL,
     `title` varchar(255) NOt NULL,
     `views` int(11) NOT NULL,

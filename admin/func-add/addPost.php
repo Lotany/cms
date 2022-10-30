@@ -1,6 +1,7 @@
 <?php 
 
 if (isset($_POST['add-post'])) {
+    include '../includes/config.php';
     $author = $_POST['author'];
     $title = $_POST['title'];
 
