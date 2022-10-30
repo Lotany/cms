@@ -16,21 +16,16 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   `user_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `user_role_id` int(11) DEFAULT NULL,
-  `date_reg` datetime NOT NULL,
+  `role` enum('Author','Admin') DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table demo.tbl_users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
-INSERT INTO `tbl_users` (`id`, `user_name`, `email`, `password`, `user_role_id`) VALUES
-	(1,'lotan', 'lotanable2@gmail.com', 'a5a30bc4c47888cd59c4e9df68d80242',1);
-INSERT INTO `tbl_users` (`id`, `user_name`, `email`, `password`, `user_role_id`) VALUES
-	(2, 'able','ablekilinda@gmail.com', '088e4727a34174507df3c58bea46ab46',2);
-INSERT INTO `tbl_users` (`id`, `user_name`, `email`, `password`,`user_role_id`) VALUES
-	(3,'juliana', 'julianamwake@gmail.com', '54387afa125a63304c2415978755e829',3);
-INSERT INTO `tbl_users` (`id`,`user_name`, `email`, `password`, `user_role_id`) VALUES
-	(4,'alex', 'alexmaganga@gmail.com', 'd1e1e0996f84b1f716fe59847d98f5f7',4);
+INSERT INTO `tbl_users` (`id`, `user_name`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
+	(1,'lotan', 'lotanable2@gmail.com', 'a5a30bc4c47888cd59c4e9df68d80242','Admin', '2022-09-31 06:29:02', '2022-09-31 06:29:02' );
 /*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;
 
 -- Dumping structure for table demo.tbl_user_role
@@ -71,19 +66,16 @@ INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `topic_desc`) VALUES
     `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `user_id` int(11) DEFAULT NULL,
     `title` varchar(255) NOt NULL,
-    `slug` varchar(255) NOT NULL,
+    `slug` varchar(255) NOT NULL UNIQUE,
     `views` int(11) NOT NULL DEFAULT '0',
     `image` varchar(255) NOT NULL,
     `body` text NOT NULL,
     `published` tinyint(1) NOT NULL,
     `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    `updated_at` timestamp NOT NULL '0000-00-00 00:00:00',
-    UNIQUE KEY `slug` (`slug`),
-    FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE IF NOT EXISTS `post_topic` {
-  `id` int(11),
-  `post_id` int(11),
-  `topic_id` int(11)
-}
+
+INSERT INTO `posts`(`id`,`user_id`,`title`,`slug`,`views`,`image`,`body`,`published`,`created_at`,`updated_at`) VALUES
+(1,1,'HOW TO LIVE LIFE','HOW-TO-LIVE-LIFE',0,'banner.jpg','read everday',1,'2022-10-21  05:34:34','2022-02-3 04:23:32')
