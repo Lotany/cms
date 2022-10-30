@@ -52,8 +52,9 @@
                                 <td><?php echo $qq['id']; ?></td>
                                 <td><?php echo $qq['first_name']; ?></td>
                                 <td><?php if($qq['user_role_id']==1){echo "Admin";}else if($qq['user_role_id']==2){echo "Editor";}else if($qq['user_role_id']==3){echo "Author";} else if($qq['user_role_id']==4){echo "Contributer";} else{echo "You are an invader!!";}?></td>
-                                <td><a href="#" class="edit">edit</a></td>
+                                <td><a href="../func-add/editUser?edid=<?php echo $qq['id']; ?>" class="edit">edit</a></td>
                                 <td><a href="../func-add/delUser.php?delid=<?php echo $qq['id']; ?>" class="delete">delete</a></td>
+                                <td><a href="#" class="delete">Ban</a></td>
                             </tr>
 
                             <?php } ?>
