@@ -60,7 +60,7 @@
                           
                             <select name="role" class="text-input">
                             <?php while ($res= mysqli_fetch_array($query,MYSQLI_ASSOC)):;?>
-                                <option value="<?php echo $res["id"]; ?>"> <?php echo $res["id"]; ?></option>
+                                <option value="<?php echo $res["user_role"]; ?>"> <?php echo $res["id"]; ?></option>
                                 <?php endwhile; ?>
                             </select>
                            
