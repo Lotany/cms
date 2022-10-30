@@ -12,6 +12,14 @@
 
 ?>
 
+<!-- getting all users from database -->
+<?php
+            require_once '../includes/config.php';
+            $sql = "select * from tbl_users";
+            $query = mysqli_query($conn,$sql);
+       ?>
+
+
         <!-- Admin Page Wrapper -->
         <div class="admin-wrapper">
 
@@ -39,20 +47,16 @@
                             <th colspan="2">Action</th>
                         </thead>
                         <tbody>
+                            <?php while($qq= mysqli_fetch_array($query)) { ?>
                             <tr>
-                                <td>1</td>
-                                <td>Awa</td>
-                                <td>Admin</td>
+                                <td><?php echo $qq['id']; ?></td>
+                                <td><?php echo $qq['first_name']; ?></td>
+                                <td><?php if($qq['user_role_id']==1){echo "Admin";}else if($qq['user_role_id']==2){echo "Editor";}else if($qq['user_role_id']==3){echo "Author";} else if($qq['user_role_id']==4){echo "Contributer";} else{echo "You are an invader!!";}?></td>
                                 <td><a href="#" class="edit">edit</a></td>
                                 <td><a href="#" class="delete">delete</a></td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Melvine</td>
-                                <td>Author</td>
-                                <td><a href="#" class="edit">edit</a></td>
-                                <td><a href="#" class="delete">delete</a></td>
-                            </tr>
+
+                            <?php } ?>
                         </tbody>
                     </table>
 
