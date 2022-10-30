@@ -92,51 +92,6 @@
           </div>
         </div>
 <?php endforeach ?>
-        <div class="post clearfix">
-          <img src="images/image_4.png" alt="" class="post-image">
-          <div class="post-preview">
-            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
-            <i class="far fa-user"> Awa Melvine</i>
-            &nbsp;
-            <i class="far fa-calendar"> Mar 11, 2019</i>
-            <p class="preview-text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Exercitationem optio possimus a inventore maxime laborum.
-            </p>
-            <a href="single.php" class="btn read-more">Read More</a>
-          </div>
-        </div>
-
-
-        <div class="post clearfix">
-          <img src="images/image_3.png" alt="" class="post-image">
-          <div class="post-preview">
-            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
-            <i class="far fa-user"> Awa Melvine</i>
-            &nbsp;
-            <i class="far fa-calendar"> Mar 11, 2019</i>
-            <p class="preview-text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Exercitationem optio possimus a inventore maxime laborum.
-            </p>
-            <a href="single.php" class="btn read-more">Read More</a>
-          </div>
-        </div>
-        <div class="post clearfix">
-          <img src="images/image_3.png" alt="" class="post-image">
-          <div class="post-preview">
-            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
-            <i class="far fa-user"> Awa Melvine</i>
-            &nbsp;
-            <i class="far fa-calendar"> Mar 11, 2019</i>
-            <p class="preview-text">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Exercitationem optio possimus a inventore maxime laborum.
-            </p>
-            <a href="single.php" class="btn read-more">Read More</a>
-          </div>
-        </div>
-
       </div>
       <!-- // Main Content -->
 
