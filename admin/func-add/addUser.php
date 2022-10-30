@@ -1,14 +1,16 @@
 <?php
 
-	if (isset($_POST['add-btn'])){
+	if (isset($_POST['add-user'])){
 
 	include '../includes/config.php';
 
-	$topics = $_POST['topics'];
-	$topdes = $_POST['topdes'];
+	$user = $_POST['username'];
+	$email = $_POST['email'];
+	$pass = md5($_POST['password']);
+	$role = $_POST['role'];
 	
-	$sql= "insert into topic_tbl (topic_name, topic_desc) values('$topics', '$topdes')";
+	$sql= "insert into tbl_users (user_name, email, password, user_role_id) values('$user', '$email', '$pass', '$role')";
 	mysqli_query($conn,$sql);
-	header("Location: ../topics/index.php?add=success");
+	header("Location: ../users/index.php?add=success");
 	
 	}
