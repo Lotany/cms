@@ -59,14 +59,22 @@ CREATE TABLE IF NOT EXISTS `topic_tbl` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `slug`) VALUES
-  (1,'Taita', 'talks about taita people');
+  (1,'Taita', 'tribe'),
+  (2,'Environment', 'wildlife'),
+  (3,'Ses', 'nature');
 
 
 CREATE TABLE IF NOT EXISTS `post_topic`(
   `id`int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  `post_id` int(11) NOT NULL UNIQUE,
-  `topic_id` int(11) NOT NULL
+  `post_id` int(11) DEFAULT NULL UNIQUE,
+  `topic_id` int(11) DEFAULT NULL
+  FOREIGN KEY `post_id` REFERENCES `posts` (`id`)  ON DELETE CASCADE ON UPDATE NO ACTION
+  FOREIGN KEY `topic_id` REFERENCES `topic_tbl` (`topic_id`) ON DELETE CASCADE ON UPDATE NO ACTION
 )
+
+INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`) VALUES
+(1,1,1),
+(2,2,2);
 
 
   CREATE TABLE IF NOT EXISTS `posts` (
