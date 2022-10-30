@@ -6,7 +6,7 @@
 
 	$user = $_POST['username'];
 	$email = $_POST['email'];
-	$pass = md5($_POST['password']);
+	$pass = $_POST['password'];
 	$role = $_POST['role'];
 	
 	$sql= "insert into tbl_users (user_name, email, password, user_role_id) values('$user', '$email', '$pass', '$role')";

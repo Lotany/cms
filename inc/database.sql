@@ -13,24 +13,24 @@ USE `able_db`;
 -- Dumping structure for table demo.tbl_users
 CREATE TABLE IF NOT EXISTS `tbl_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_role_id` int(11) DEFAULT NULL,
   `user_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `user_role_id` int(11) DEFAULT NULL,
   `date_reg` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table demo.tbl_users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
-INSERT INTO `tbl_users` (`id`, `user_role_id`, `user_name`, `email`, `password`) VALUES
-	(1, 1, 'lotan', 'lotanable2@gmail.com', 'a5a30bc4c47888cd59c4e9df68d80242');
-INSERT INTO `tbl_users` (`id`, `user_role_id`, `user_name`, `email`, `password`) VALUES
-	(2, 2, 'able','ablekilinda@gmail.com', '088e4727a34174507df3c58bea46ab46');
-INSERT INTO `tbl_users` (`id`, `user_role_id`, `user_name`, `email`, `password`) VALUES
-	(3, 3, 'juliana', 'julianamwake@gmail.com', '54387afa125a63304c2415978755e829');
-INSERT INTO `tbl_users` (`id`, `user_role_id`, `user_name`, `email`, `password`) VALUES
-	(4, 4, 'alex', 'alexmaganga@gmail.com', 'd1e1e0996f84b1f716fe59847d98f5f7');
+INSERT INTO `tbl_users` (`id`, `user_name`, `email`, `password`, `user_role_id`) VALUES
+	(1,'lotan', 'lotanable2@gmail.com', 'a5a30bc4c47888cd59c4e9df68d80242',1);
+INSERT INTO `tbl_users` (`id`, `user_name`, `email`, `password`, `user_role_id`) VALUES
+	(2, 'able','ablekilinda@gmail.com', '088e4727a34174507df3c58bea46ab46',2);
+INSERT INTO `tbl_users` (`id`, `user_name`, `email`, `password`,`user_role_id`) VALUES
+	(3,'juliana', 'julianamwake@gmail.com', '54387afa125a63304c2415978755e829',3);
+INSERT INTO `tbl_users` (`id`,`user_name`, `email`, `password`, `user_role_id`) VALUES
+	(4,'alex', 'alexmaganga@gmail.com', 'd1e1e0996f84b1f716fe59847d98f5f7',4);
 /*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;
 
 -- Dumping structure for table demo.tbl_user_role
