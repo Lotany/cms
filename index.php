@@ -1,4 +1,7 @@
 <?php include 'header.php' ?>
+<?php require_once 'inc/config.php' ?>
+<?php require_once( ROOT_PATH . '/public_functions.php') ?>
+<?php $posts =getpublishedPosts(); ?>
 
   <!-- Page Wrapper -->
   <div class="page-wrapper">
@@ -73,14 +76,14 @@
       <!-- Main Content -->
       <div class="main-content">
         <h1 class="recent-post-title">Recent Posts</h1>
-
+<?php foreach ($posts as $post): ?>
         <div class="post clearfix">
-          <img src="images/image_3.png" alt="" class="post-image">
+          <img src="<?php echo BASE_URL . '/images/' .$post['image']; ?>" alt="" class="post-image">
           <div class="post-preview">
-            <h2><a href="single.hmtl">The strongest and sweetest songs yet remain to be sung</a></h2>
+            <h2><a href="single.php?post-slug=<?php echo $post['slug']; ?>"></a></h2>
             <i class="far fa-user"> Awa Melvine</i>
             &nbsp;
-            <i class="far fa-calendar"> Mar 11, 2019</i>
+            <i class="far fa-calendar"><?php echo date("F j, Y", strtotime($post['created_at'])); ?></i>
             <p class="preview-text">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Exercitationem optio possimus a inventore maxime laborum.
@@ -88,7 +91,7 @@
             <a href="single.php" class="btn read-more">Read More</a>
           </div>
         </div>
-
+<?php endforeach ?>
         <div class="post clearfix">
           <img src="images/image_4.png" alt="" class="post-image">
           <div class="post-preview">
@@ -103,6 +106,8 @@
             <a href="single.php" class="btn read-more">Read More</a>
           </div>
         </div>
+
+
         <div class="post clearfix">
           <img src="images/image_3.png" alt="" class="post-image">
           <div class="post-preview">
