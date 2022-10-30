@@ -12,6 +12,13 @@
 
 ?>
 
+  <!-- getting all user roles from database -->
+<?php
+            require_once '../includes/config.php';
+            $sql = "select * from tbl_user_role";
+            $query = mysqli_query($conn,$sql);
+       ?>
+
 
         <!-- Admin Page Wrapper -->
         <div class="admin-wrapper">
@@ -50,10 +57,13 @@
 
                         <div>
                             <label>Role</label>
+                          
                             <select name="role" class="text-input">
-                                <option value="Author">Author</option>
+                            <?php while ($res= mysqli_fetch_array($query,MYSQLI_ASSOC)):;?>
+                                <option value="<?php echo $res["id"]; ?>"> <?php echo $res["user_role"]; ?></option>
+                                <?php endwhile; ?>
                             </select>
-                        </div>
+                           
 
                         <div>
                             <button type="add-user" class="btn btn-big">Add User</button>
