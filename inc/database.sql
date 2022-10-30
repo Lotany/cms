@@ -66,7 +66,7 @@ INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `slug`) VALUES
 
 CREATE TABLE IF NOT EXISTS `post_topic`(
   `id`int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `post_id` int(11) DEFAULT NULL UNIQUE,
+  `post_id` int(11) DEFAULT NULL,
   `topic_id` int(11) DEFAULT NULL
 
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -93,3 +93,6 @@ INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`) VALUES
 
 INSERT INTO `posts`(`id`,`user_id`,`title`,`slug`,`views`,`image`,`body`,`published`,`created_at`,`updated_at`) VALUES
 (1,1,'HOW TO LIVE LIFE','HOW-TO-LIVE-LIFE',0,'banner.jpg','read everday',1,'2022-10-21  05:34:34','2022-02-3 04:23:32')
+
+ALTER TABLE `post_topic` ADD FOREIGN KEY (`post_id`) REFERENCES `posts`(`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+ALTER TABLE `post_topic` ADD FOREIGN KEY (`topic_id`) REFERENCES `topic_tbl`(`topic_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
