@@ -37,26 +37,36 @@
 
                     <h2 class="page-title">Manage Posts</h2>
 
-                    <form action="create.html" method="post">
+                    <form action="../func-add/addPost.php" method="post">
                     <div>
-                            <label>User_Id</label>
-                            <input type="text" name="title" class="text-input">
+                            <label>Author *</label>
+                            <input type="text" value="<?php echo getUserAccessRoleByID($_SESSION['user_role_id']); ?>" name="author" class="text-input">
                         </div>
-                        <div>
-                        
 
                                                 
                         <div>
                             <label>Topic *</label>
                             <select name="topic" class="text-input">
-                                <option value="Poetry">Poetry</option>
+                                <?php while($q=mysqli_fetch_array($query,MYSQLI_ASSOC)):; ?>
+                                <option value="Poetry"><?php echo $q['topic_name']; ?></option>
+                                <?php endwhile; ?>
                             </select>
                         </div>
 
-
+                        <div>
                             <label>Title *</label>
                             <input type="text" name="title" class="text-input">
                         </div>
+
+                        <div>
+                            <label>Status *</label>
+                            <select name="topic" class="text-input">
+                                <option value="Poetry">0</option>
+                                <option value="Poetry">1</option>
+                              
+                            </select>
+                        </div>
+
 
 
                         <div>
@@ -70,8 +80,9 @@
                         </div>
 
 
+
                         <div>
-                            <button type="submit" class="btn btn-big">Add Post</button>
+                            <button name="add-post" type="submit" class="btn btn-big">Upload Post</button>
                         </div>
                     </form>
 
