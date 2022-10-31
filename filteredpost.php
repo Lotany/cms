@@ -28,7 +28,7 @@
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.
               Exercitationem optio possimus a inventore maxime laborum.
             </p>
-            <a href="single.php" class="btn read-more">Read More</a>
+            <a href="single.php?post-slug=<?php echo $post['slug']; ?>" class="btn read-more">Read More</a>
           </div>
         </div>
 <?php endforeach ?>

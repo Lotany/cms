@@ -1,8 +1,9 @@
 <?php include 'header.php' ?>
+<?php require_once 'inc/config.php' ?>
 <?php require_once( ROOT_PATH . '/public_functions.php') ?>
 <?php 
   if(isset($_GET['post-slug'])){
-    $post = getPost($_Ge['post-slug']);
+    $post = getPost($_GET['post-slug']);
 
   }
   $topics =getallTopics();
@@ -17,6 +18,7 @@
       <!-- Main Content Wrapper -->
       <div class="main-content-wrapper">
         <div class="main-content single">
+
         <?php if($post['published']==false): ?>
           <h1 class="post-title">Sorry..This post has not been published</h1>
           <?php else: ?>
@@ -25,6 +27,7 @@
             <p><?php echo html_entity_decode($post['body']); ?></p>
           </div>
        <?php endif ?>
+
         </div>
       </div>
       <!-- // Main Content -->
@@ -78,13 +81,9 @@
         <div class="section topics">
           <h2 class="section-title">Topics</h2>
           <ul>
-            <li><a href="#">Poems</a></li>
-            <li><a href="#">Quotes</a></li>
-            <li><a href="#">Fiction</a></li>
-            <li><a href="#">Biography</a></li>
-            <li><a href="#">Motivation</a></li>
-            <li><a href="#">Inspiration</a></li>
-            <li><a href="#">Life Lessons</a></li>
+            <?php foreach($topics as $topic): ?>
+            <li><a href="<?php echo BASE_URL . 'filteredpost.php?topic=' . $topic['id'] ?>"><?php echo $topic['name']; ?></a></li>
+            <?php endforeach ?>
           </ul>
         </div>
       </div>
