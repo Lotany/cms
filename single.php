@@ -1,4 +1,12 @@
 <?php include 'header.php' ?>
+<?php require_once( ROOT_PATH . '/public_functions.php') ?>
+<?php 
+  if(isset($_GET['post-slug'])){
+    $post = getPost($_Ge['post-slug']);
+
+  }
+  $topics =getallTopics();
+?>
 
   <!-- Page Wrapper -->
   <div class="page-wrapper">
@@ -9,56 +17,14 @@
       <!-- Main Content Wrapper -->
       <div class="main-content-wrapper">
         <div class="main-content single">
-          <h1 class="post-title">This is the title of the Post</h1>
-
+        <?php if($post['published']==false): ?>
+          <h1 class="post-title">Sorry..This post has not been published</h1>
+          <?php else: ?>
+            <h1 class="post-title"><?php echo $post['title']; ?></h1>
           <div class="post-content">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione modi error rerum possimus animi! Eos!
-            </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam placeat at molestias vitae! Ipsa
-              repudiandae praesentium nobis nesciunt, iusto pariatur tenetur commodi! Iste sequi placeat dolores nulla,
-              expedita voluptas officiis.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, facere iste! Ex quia hic recusandae
-              optio velit ad consectetur totam sed sunt quasi voluptates, sequi molestias alias sapiente iste asperiores
-              nostrum est voluptatem quae earum accusantium. Totam dolorem possimus rem!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, nisi.</p>
+            <p><?php echo html_entity_decode($post['body']); ?></p>
           </div>
-
+       <?php endif ?>
         </div>
       </div>
       <!-- // Main Content -->
