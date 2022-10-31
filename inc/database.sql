@@ -34,25 +34,10 @@ CREATE TABLE IF NOT EXISTS `topics` (
   `slug` varchar(255) DEFAULT NULL UNIQUE,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `topics` (`id`, `name`, `slug`) VALUES
-  (1,'Taita', 'tribe'),
-  (2,'Environment', 'wildlife'),
-  (3,'Ses', 'nature');
+INSERT INTO `topics`(`id`, `name`, `slug`) VALUES (1,'Inspirartion','inspiration'),(2,'Motivation','motivation'),(3,'Diary','diary');
 
 
-CREATE TABLE IF NOT EXISTS `post_topic`(
-  `id`int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `post_id` int(11),
-  `topic_id` int(11)
-)ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`) VALUES
-(1,1,1),
-(2,2,2);
-
-
-  CREATE TABLE IF NOT EXISTS `posts` (
+CREATE TABLE IF NOT EXISTS `posts` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `user_id` int(11) DEFAULT NULL,
     `title` varchar(255) NOt NULL,
@@ -67,7 +52,13 @@ INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`) VALUES
      FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO `posts`(`id`, `user_id`, `title`, `slug`, `views`, `image`, `body`, `published`, `created_at`, `updated_at`) VALUES (1,1,'How to link a man','how-to-link-a-ama',0,'banner.jpg', 'how to link a mana to likn kyti',1,'2022-02-23 07:06:43','2019-02-08 09:07:04');
 
-INSERT INTO `posts`(`id`,`user_id`,`title`,`slug`,`views`,`image`,`body`,`published`,`created_at`,`updated_at`) VALUES
-(1,1,'HOW TO LIVE LIFE','HOW-TO-LIVE-LIFE',0,'banner.jpg','read everday',1,'2022-10-21  05:34:34','2022-02-3 04:23:32')
-
+CREATE TABLE IF NOT EXISTS `post_topic`(
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) NOT NULL UNIQUE,
+  `topic_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`post_id`) REFERENCES `posts`(`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  FOREIGN KEY (`topic_id`) REFERENCES `topics`(`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+)ENGINE=InnoDB DEFAULT CHARSET=latin1;
