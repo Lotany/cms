@@ -2,6 +2,7 @@
 <?php require_once 'inc/config.php' ?>
 <?php require_once( ROOT_PATH . '/public_functions.php') ?>
 <?php $posts =getpublishedPosts(); ?>
+<?php $topics = getallTopics(); ?>
 
   <!-- Page Wrapper -->
   <div class="page-wrapper">
@@ -82,6 +83,7 @@
           <div class="post-preview">
             <h2><a href="single.php?post-slug=<?php echo $post['slug']; ?>"></a></h2>
             <i class="far fa-user"> Awa Melvine</i>
+            <i class="far fa-user"> </i>
             &nbsp;
             <i class="far fa-calendar"><?php echo date("F j, Y", strtotime($post['created_at'])); ?></i>
             <p class="preview-text">
@@ -108,13 +110,9 @@
         <div class="section topics">
           <h2 class="section-title">Topics</h2>
           <ul>
-            <li><a href="#">Poems</a></li>
-            <li><a href="#">Quotes</a></li>
-            <li><a href="#">Fiction</a></li>
-            <li><a href="#">Biography</a></li>
-            <li><a href="#">Motivation</a></li>
-            <li><a href="#">Inspiration</a></li>
-            <li><a href="#">Life Lessons</a></li>
+            <?php foreach($topics as $topic): ?>
+            <li><a href="<?php echo BASE_URL . 'filteredpost.php?topic=' . $topic['id'] ?>"><?php echo $topic['name']; ?></a></li>
+            <?php endforeach ?>
           </ul>
         </div>
 
