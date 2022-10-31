@@ -11,7 +11,7 @@ CREATE DATABASE IF NOT EXISTS `able_db` /*!40100 DEFAULT CHARACTER SET latin1 */
 USE `able_db`;
 
 -- Dumping structure for table demo.tbl_users
-CREATE TABLE IF NOT EXISTS `tbl_users` (
+CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -22,43 +22,20 @@ CREATE TABLE IF NOT EXISTS `tbl_users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table demo.tbl_users: ~0 rows (approximately)
-/*!40000 ALTER TABLE `tbl_users` DISABLE KEYS */;
-INSERT INTO `tbl_users` (`id`, `user_name`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
+
+INSERT INTO `users` (`id`, `user_name`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
 	(1,'lotan', 'lotanable2@gmail.com', 'a5a30bc4c47888cd59c4e9df68d80242','Admin', '2022-09-31 06:29:02', '2022-09-31 06:29:02' );
-/*!40000 ALTER TABLE `tbl_users` ENABLE KEYS */;
 
--- Dumping structure for table demo.tbl_user_role
-CREATE TABLE IF NOT EXISTS `tbl_user_role` (
+
+
+CREATE TABLE IF NOT EXISTS `topics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_role` varchar(100) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-
--- Dumping data for table demo.tbl_user_role: ~0 rows (approximately)
-/*!40000 ALTER TABLE `tbl_user_role` DISABLE KEYS */;
-INSERT INTO `tbl_user_role` (`id`, `user_role`) VALUES
-	(1, 'admin');
-INSERT INTO `tbl_user_role` (`id`, `user_role`) VALUES
-	(2, 'editor');
-INSERT INTO `tbl_user_role` (`id`, `user_role`) VALUES
-	(3, 'author');
-INSERT INTO `tbl_user_role` (`id`, `user_role`) VALUES
-	(4, 'contributor');
-/*!40000 ALTER TABLE `tbl_user_role` ENABLE KEYS */;
-
-/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-
-CREATE TABLE IF NOT EXISTS `topic_tbl` (
-  `topic_id` int(11) NOT NULL AUTO_INCREMENT,
-  `topic_name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `slug` varchar(255) DEFAULT NULL UNIQUE,
-  PRIMARY KEY (`topic_id`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `slug`) VALUES
+INSERT INTO `topics` (`id`, `name`, `slug`) VALUES
   (1,'Taita', 'tribe'),
   (2,'Environment', 'wildlife'),
   (3,'Ses', 'nature');
@@ -66,8 +43,8 @@ INSERT INTO `topic_tbl` (`topic_id`, `topic_name`, `slug`) VALUES
 
 CREATE TABLE IF NOT EXISTS `post_topic`(
   `id`int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `post_id` int(11) DEFAULT NULL,
-  `topic_id` int(11) DEFAULT NULL
+  `post_id` int(11),
+  `topic_id` int(11)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`) VALUES
@@ -76,7 +53,7 @@ INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`) VALUES
 
 
   CREATE TABLE IF NOT EXISTS `posts` (
-    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `id` int(11) NOT NULL AUTO_INCREMENT,
     `user_id` int(11) DEFAULT NULL,
     `title` varchar(255) NOt NULL,
     `slug` varchar(255) NOT NULL UNIQUE,
@@ -86,9 +63,11 @@ INSERT INTO `post_topic` (`id`, `post_id`, `topic_id`) VALUES
     `published` tinyint(1) NOT NULL,
     `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (`user_id`) REFERENCES `tbl_users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+     PRIMARY KEY(`id`),
+     FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 INSERT INTO `posts`(`id`,`user_id`,`title`,`slug`,`views`,`image`,`body`,`published`,`created_at`,`updated_at`) VALUES
 (1,1,'HOW TO LIVE LIFE','HOW-TO-LIVE-LIFE',0,'banner.jpg','read everday',1,'2022-10-21  05:34:34','2022-02-3 04:23:32')
+
