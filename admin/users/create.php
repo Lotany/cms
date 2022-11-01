@@ -1,4 +1,12 @@
 <?php 
+	session_start();
+	
+	if(!isset($_SESSION['id'],$_SESSION['user_role_id']))
+	{
+		header('location:../../login.php?lmsg=true');
+		exit;
+	}		
+	
     require_once('../includes/function.php');
 	require_once('../includes/header.php');
 
