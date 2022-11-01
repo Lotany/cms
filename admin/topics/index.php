@@ -5,7 +5,7 @@
 ?>
        <?php
             require_once '../includes/config.php';
-            $sql = "select * from topic_tbl";
+            $sql = "select * from topics";
             $query = mysqli_query($conn,$sql);
        
        ?>
@@ -39,15 +39,13 @@
                             while($qq=mysqli_fetch_array($query))
                             { ?>
                         <tr>
-	   <td><?php echo $qq['topic_id']; ?></td> 
-	   <td><?php echo $qq['topic_name']; ?></td>
+	   <td><?php echo $qq['id']; ?></td> 
+	   <td><?php echo $qq['name']; ?></td>
 
-	   <td><a href="../func-add/editTopic.php?topid=<?php echo $qq['topic_id']; ?>" class="edit">edit</a></td>
-     <?php
-       //only visible to admin
-		if($_SESSION['user_role_id'] == 1){?>
-	   <td><a href="../func-add/delTopic.php?id=<?php echo $qq['topic_id']; ?>" class="delete">Delete</a></td>
-    <?php } ?>
+	   <td><a href="../func-add/editTopic.php?topid=<?php echo $qq['id']; ?>" class="edit">edit</a></td>
+
+	   <td><a href="../func-add/delTopic.php?id=<?php echo $qq['id']; ?>" class="delete">Delete</a></td>
+    
       
     </tr>
    <?php } ?>

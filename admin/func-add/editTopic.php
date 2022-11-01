@@ -1,12 +1,4 @@
 <?php 
-	session_start();
-	
-	if(!isset($_SESSION['id'],$_SESSION['user_role_id']))
-	{
-		header('location:../../login.php?lmsg=true');
-		exit;
-	}		
-	
     require_once('../includes/function.php');
 	require_once('../includes/header.php');
 
@@ -17,13 +9,13 @@
             $topics = $_POST['topics'];
             $topdes = $_POST['topdes'];
             $id = $_GET['topid'];
-            $sql= "update topic_tbl set topic_name = '$topics', topic_desc ='$topdes' where topic_id=$id";
+            $sql= "update topics set name = '$topics', slug ='$topdes' where id=$id";
             mysqli_query($conn,$sql);
             header('Location: ../topics/index.php');
          }
          
          else if(isset($_GET['topid'])){
-                $q = "select * from topic_tbl where topic_id ='".$_GET['topid']."'";
+                $q = "select * from topics where id ='".$_GET['topid']."'";
                 $query = mysqli_query($conn, $q);
                 $qq= mysqli_fetch_array($query);
 
@@ -52,11 +44,11 @@
                     <form method="post">
                         <div>
                             <label>Name</label>
-                            <input type="text" name="topics" value="<?php echo $qq['topic_name']; ?>" class="text-input">
+                            <input type="text" name="topics" value="<?php echo $qq['name']; ?>" class="text-input">
                         </div>
                         <div>
                             <label>Description</label>
-                            <input type="text" name="topdes" value="<?php echo $qq['topic_desc']; ?>" class="text-input">
+                            <input type="text" name="topdes" value="<?php echo $qq['slug']; ?>" class="text-input">
                         </div>
 
                         <div>
