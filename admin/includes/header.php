@@ -35,7 +35,7 @@
                 <li>
                     <a href="#">
                         <i class="fa fa-user"></i>
-                        <?php echo getUserAccessRoleByID($_SESSION['user_role_id']); ?>
+                
                         <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
                     </a>
                     <ul>

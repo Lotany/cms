@@ -1,15 +1,7 @@
 <?php 
-	session_start();
-	
-	if(!isset($_SESSION['id'],$_SESSION['user_role_id']))
-	{
-		header('location:../../login.php?lmsg=true');
-		exit;
-	}		
-	
-	require_once('../includes/function.php');
-	require_once('../includes/header.php');
 
+    
+	require_once('../includes/header.php');
 ?>
 
         <!-- Admin Page Wrapper -->
@@ -46,12 +38,8 @@
                                 <td>Awa</td>
                                 <td><a href="#" class="edit">edit</a></td>
 
-                                <?php 
-		//only visible to admin
-		if($_SESSION['user_role_id'] == 1){?>
                                 <td><a href="#" class="delete">delete</a></td>
-                                
-                  <?php } ?>              <td><a href="#" class="publish">publish</a></td>
+                             <td><a href="#" class="publish">publish</a></td>
                             </tr>
                         </tbody>
                     </table>
