@@ -1,6 +1,7 @@
 <?php include 'header.php' ?>
 <?php require_once 'inc/config.php' ?>
 <?php require_once( ROOT_PATH . '/public_functions.php') ?>
+<?php require_once 'inc/login_reg.php' ?>
 <?php $posts =getpublishedPosts(); ?>
 <?php $topics = getallTopics(); ?>
 

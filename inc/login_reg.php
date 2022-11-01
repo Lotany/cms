@@ -86,7 +86,7 @@
 				if ( in_array($_SESSION['user']['role'], ["Admin", "Author"])) {
 					$_SESSION['message'] = "You are now logged in";
 					// redirect to admin area
-					header('location: ' . BASE_URL . '/admin/posts/index.php');
+					header('location: ' . BASE_URL . 'admin/posts/index.php');
 					exit(0);
 				} else {
 					$_SESSION['message'] = "You are now logged in";

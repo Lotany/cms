@@ -31,18 +31,22 @@
       <li><a href="index.php">Home</a></li>
       <li><a href="about.php">About</a></li>
       <li><a href="services.php">Services</a></li>
-      <li><a href="register.php">Sign Up</a></li>
-      <li><a href="login.php">Login</a></li> 
       <li>
         <a href="#">
           <i class="fa fa-user"></i>
           Able kilinda
           <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
         </a>
+
+        <?php if (isset($_SESSION['user']['username'])) { ?>
         <ul>
-          <li><a href="#">Dashboard</a></li>
-          <li><a href="#" class="logout">Logout</a></li>
+          <li><a href="#"> <?php echo $_SESSION['user']['username'] ?></a></li>
+          <li><a href="logout.php" class="logout">Logout</a></li>
+          <?php } else { ?>
+            <li><a href="register.php">Sign Up</a></li>
+      <li><a href="login.php">Login</a></li> 
         </ul>
+        <?php } ?>
       </li>
     </ul>
   </header>
