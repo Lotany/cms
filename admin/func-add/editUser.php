@@ -1,12 +1,4 @@
 <?php 
-	session_start();
-	
-	if(!isset($_SESSION['id'],$_SESSION['user_role_id']))
-	{
-		header('location:../../login.php?lmsg=true');
-		exit;
-	}		
-	
     require_once('../includes/function.php');
 	require_once('../includes/header.php');
 
@@ -19,13 +11,13 @@
             $email = $_POST['email'];
             $role = $_POST['role'];
             $id = $_GET['edid'];
-            $sql= "update tbl_users set user_name = '$username', email ='$email', user_role_id= '$role' where id=$id";
+            $sql= "update users set user_name = '$username', email ='$email', role= '$role' where id=$id";
             mysqli_query($conn,$sql);
             header('Location: ../users/index.php');
          }
          
          else if(isset($_GET['edid'])){
-                $q = "select * from tbl_users where id ='".$_GET['edid']."'";
+                $q = "select * from users where id ='".$_GET['edid']."'";
                 $query = mysqli_query($conn, $q);
                 $qq= mysqli_fetch_array($query);
 
@@ -64,7 +56,7 @@
 
                         <div>
                             <label>Role</label>
-                            <input type="number" name="role" value="<?php echo $qq['user_role_id']; ?>" class="text-input">
+                            <input type="text" name="role" value="<?php echo $qq['role']; ?>" class="text-input">
                         </div>
 
                         <div>

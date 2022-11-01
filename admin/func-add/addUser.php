@@ -9,7 +9,7 @@
 	$pass =  $_POST['password'];
 	$role =  $_POST['role'];
 	
-	$sql= "insert into tbl_users (user_name, email, password, user_role_id) values('$user', '$email', '$pass', '$role')";
+	$sql= "insert into users (user_name, email, password, role) values('$user', '$email', '$pass', '$role')";
 	mysqli_query($conn,$sql);
 	if(mysqli_query($conn,$sql)){
 	header("Location: ../users/index.php?add=success");
