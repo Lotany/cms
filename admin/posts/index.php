@@ -1,7 +1,8 @@
-<?php 
-
-    
-	require_once('../includes/header.php');
+<?php
+session_start();
+include '../includes/header.php';
+        include '../../inc/public_functions.php'
+       
 ?>
 
         <!-- Admin Page Wrapper -->

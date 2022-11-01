@@ -22,7 +22,7 @@
         <!-- Admin Styling -->
         <link rel="stylesheet" href="../../css/admin.css">
 
-        <title>Admin Section - Add Post</title>
+        <title>Admin</title>
     </head>
 
     <body>
@@ -31,16 +31,20 @@
                 <h1 class="logo-text"> <a href="index.php"><span>Awa</span>Inspires </a></h1>
             </div>
             <i class="fa fa-bars menu-toggle"></i>
+
+            <?php if (isset($_SESSION['user']['username'])) { ?>
             <ul class="nav">
-                <li>
+                <li>        
                     <a href="#">
                         <i class="fa fa-user"></i>
-                
+          <?php echo $_SESSION['user']['username'] ?>
                         <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
                     </a>
+
                     <ul>
                         <li><a href="../../login.php?logout=true" class="logout" name="logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
+            <?php } ?>
         </header>
