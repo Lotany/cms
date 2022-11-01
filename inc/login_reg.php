@@ -111,6 +111,7 @@
 		$val = trim($value); // remove empty space sorrounding string
 		$val = mysqli_real_escape_string($conn, $value);
 
+
 		return $val;
 	}
 	// Get user info from user id

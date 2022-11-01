@@ -28,23 +28,24 @@
     <body>
         <header>
             <div class="logo">
-                <h1 class="logo-text"> <a href="index.php"><span>Awa</span>Inspires </a></h1>
+                <h1 class="logo-text"> <a href="index.php"><span>Admin</span>Area</a></h1>
             </div>
             <i class="fa fa-bars menu-toggle"></i>
+
+     
             <ul class="nav">
                 <li>        
                     <a href="#">
                         <i class="fa fa-user"></i>
-         lotan
+                        huhuhuhuh
                         <i class="fa fa-chevron-down" style="font-size: .8em;"></i>
                     </a>
 
                     <ul>
-                        <li><a href="../../login.php?logout=true" class="logout" name="logout">Logout</a></li>
+                        <li><a href="../../logout.php" class="logout" name="logout">Logout</a></li>
                     </ul>
                 </li>
             </ul>
-
            
 
 

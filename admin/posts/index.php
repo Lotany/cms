@@ -1,7 +1,4 @@
-<?php
-session_start();
-include '../includes/header.php';  
-?>
+<?php include '../includes/header.php'; ?>
 
         <!-- Admin Page Wrapper -->
         <div class="admin-wrapper">
@@ -14,8 +11,10 @@ include '../includes/header.php';
             <!-- Admin Content -->
             <div class="admin-content">
                 <div class="button-group">
+        
                     <a href="create.php" class="btn btn-big">Add Post</a>
                     <a href="index.php" class="btn btn-big">Manage Posts</a>
+    
                 </div>
 
 
