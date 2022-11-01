@@ -14,16 +14,4 @@
 	
 	define('ROOT_PATH', realpath(dirname(__FILE__)));
 	define('BASE_URL','http://localhost/cms/');
-	
-	function getUserAccessRoleByID($id)
-	{
-		global $conn;
-		
-		$query = "select user_role from tbl_user_role where  id = ".$id;
-	
-		$rs = mysqli_query($conn,$query);
-		$row = mysqli_fetch_assoc($rs);
-		
-		return $row['user_role'];
-	}
 ?>
