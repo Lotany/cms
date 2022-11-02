@@ -5,7 +5,7 @@
 
 <?php
             require_once '../includes/config.php';
-            $sql = "select * from topic_tbl";
+            $sql = "select * from topics";
             $query = mysqli_query($conn,$sql);
        
        ?>
@@ -32,7 +32,7 @@
                     <form action="../func-add/addPost.php" method="post">
                     <div>
                             <label>Author *</label>
-                            <input type="text" value="<?php echo getUserAccessRoleByID($_SESSION['user_role_id']); ?>" name="author" class="text-input">
+                            <input type="text" value="" name="author" class="text-input">
                         </div>
 
                                                 
@@ -40,7 +40,7 @@
                             <label>Topic *</label>
                             <select name="topic" class="text-input">
                                 <?php while($q=mysqli_fetch_array($query,MYSQLI_ASSOC)):; ?>
-                                <option value="Poetry"><?php echo $q['topic_name']; ?></option>
+                                <option value="Poetry"><?php echo $q['name']; ?></option>
                                 <?php endwhile; ?>
                             </select>
                         </div>
