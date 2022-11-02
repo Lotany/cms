@@ -51,8 +51,13 @@
                         </div>
 
                         <div>
+                            <label>Slug *</label>
+                            <input type="text" name="slug" class="text-input">
+                        </div>
+
+                        <div>
                             <label>Status *</label>
-                            <select name="topic" class="text-input">
+                            <select name="status" class="text-input">
                                 <option value="Poetry">0</option>
                                 <option value="Poetry">1</option>
                               
